@@ -6,6 +6,7 @@ b = None
 exception1 = ("w", "g")
 exception2 = ("g", "c")
 
+
 # side2.append('w')
 # side2.append('g')
 # print(side2)
@@ -21,24 +22,20 @@ def switcher():
     isLeftSide = not isLeftSide
 
 
-#def checking ():
-while len(side1) > 0:
-    if isLeftSide:   #move from left to right
-
+# def checking ():
+while len(side2) != 3:
+    if isLeftSide:  # move from left to right
+        b = side1.pop(0)
         switcher()
-#         if exception1[0] and exception1[1] in side1:
-#             te
-#         elif exception2[0] and exception2[1] in side1:
-#             b =
-#     elif
-#         print("Right side: \n")
-    else: #move from right to left
-
+    #         if exception1[0] and exception1[1] in side1:
+    #             te
+    #         elif exception2[0] and exception2[1] in side1:
+    #             b =
+    #     elif
+    #         print("Right side: \n")
+    else:  # move from right to left
+        side2.append(b)
         switcher()
-
-
-
-
 
     # remove wolf from side 1 and move it to side 2
 
