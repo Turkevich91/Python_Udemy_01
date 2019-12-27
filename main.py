@@ -7,25 +7,23 @@ exception1 = ("w", "g")
 exception2 = ("g", "c")
 
 
-# side2.append('w')
-# side2.append('g')
-# print(side2)
-# side2.pop(side2.index("w"))
-#
-# print(side2)
-# side2.append('w')
-# print(side2)
-
-
 def switcher():
     global isLeftSide
     isLeftSide = not isLeftSide
 
 
+def indexer(side):
+    for i in side:
+        side.pop(i)
+        if exception1 or exception2 in side:
+
+
+
+
 # def checking ():
 while len(side2) != 3:
     if isLeftSide:  # move from left to right
-        b = side1.pop(0)
+        # b = side1.pop(0)
         switcher()
     #         if exception1[0] and exception1[1] in side1:
     #             te
@@ -39,6 +37,7 @@ while len(side2) != 3:
 
     # remove wolf from side 1 and move it to side 2
 
+    # side2.append(side1.pop(0))  переместить первый элемент первого списка в конец второго списка
     # isLeftSide = not isLeftSide
     # list.append(Var)
     # list.pop(0) - удалить и вернуть последний элемент списка, или его индекс.
