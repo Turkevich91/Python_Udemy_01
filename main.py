@@ -14,15 +14,17 @@ def switcher():
 
 def indexer(side):
     for i in side:
-        side.pop(i)
+        t = side.pop(i)
         if exception1 or exception2 in side:
-
-
+            return i
+        else:
+            side.insert(i, t)
 
 
 # def checking ():
 while len(side2) != 3:
     if isLeftSide:  # move from left to right
+        side2.append(side1.pop(indexer(side1)))
         # b = side1.pop(0)
         switcher()
     #         if exception1[0] and exception1[1] in side1:

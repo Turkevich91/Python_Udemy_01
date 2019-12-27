@@ -2,6 +2,7 @@ import random
 
 x = 0
 counter = 0
+value = 0
 
 
 def drop():
@@ -10,12 +11,11 @@ def drop():
 
 while x <= 2:
     counter += 1
-    map(drop, a, b)
-    # a = drop()
-    # b = drop()
+    a, b = drop(), drop()
+    value += a + b
     if a == b:
         x += 1
         if x >= 1:
-            print(x, counter)
+            print(x, counter, value, value/counter/2)
     else:
         x = 0
