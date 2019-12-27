@@ -6,7 +6,7 @@ winCounter = 0
 counter = 0
 
 print("To win in this game you have to guess 3 times in a row")
-print("What range for win do you want to have?")
+print("What range for guess do you want?")
 attempts = int(input())
 
 
