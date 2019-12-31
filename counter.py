@@ -1,5 +1,4 @@
 import random
-
 x = 0
 counter = 0
 value = 0

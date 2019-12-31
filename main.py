@@ -1,10 +1,11 @@
+from comparator import does_list_x_contain_y as compare
 # w = wolf, g = goat, c = cabbage
 side1 = ['w', 'g', 'c']
 side2 = []
 isLeftSide = True
-b = None
-exception1 = ("w", "g")
-exception2 = ("g", "c")
+# b = None
+exception1 = ["w", "g"]
+exception2 = ["g", "c"]
 
 
 def switcher():
@@ -15,28 +16,21 @@ def switcher():
 def indexer(side):
     for i in side:
         t = side.pop(i)
-        if exception1 or exception2 in side:
-            return i
-        else:
+        if compare(side, exception1) or compare(side, exception2):
             side.insert(i, t)
+        else:
+            return i
 
 
-# def checking ():
 while len(side2) != 3:
     if isLeftSide:  # move from left to right
         side2.append(side1.pop(indexer(side1)))
-        # b = side1.pop(0)
-        switcher()
-    #         if exception1[0] and exception1[1] in side1:
-    #             te
-    #         elif exception2[0] and exception2[1] in side1:
-    #             b =
-    #     elif
-    #         print("Right side: \n")
-    else:  # move from right to left
-        side2.append(b)
-        switcher()
+    elif compare(side2, exception1) or compare(side2, exception1):
+        side1.append(side2.pop(indexer(side2)))
+    print(side1, " => ", side2)
+    switcher()
 
+print("\n\nFinish")
     # remove wolf from side 1 and move it to side 2
 
     # side2.append(side1.pop(0))  переместить первый элемент первого списка в конец второго списка
