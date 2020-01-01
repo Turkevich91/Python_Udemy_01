@@ -1,39 +1,33 @@
 from comparator import does_list_x_contain_y as compare
 # w = wolf, g = goat, c = cabbage
-side1 = ['w', 'g', 'c']
-side2 = []
+left = ['wolf', 'goat', 'cabbage']
+right = []
 isLeftSide = True
-# b = None
-exception1 = ["w", "g"]
-exception2 = ["g", "c"]
-
-
-def switcher():
-    global isLeftSide
-    isLeftSide = not isLeftSide
+exception1 = ["wolf", "goat"]
+exception2 = ["goat", "cabbage"]
 
 
 def indexer(side):
-    for i in side:
+    for i in range(len(side)):
         t = side.pop(i)
         if compare(side, exception1) or compare(side, exception2):
             side.insert(i, t)
         else:
-            return i
+            return t
 
 
-while len(side2) != 3:
+print("left side:", left, "\nStart:\n")
+
+
+while len(right) != 3:
     if isLeftSide:  # move from left to right
-        side2.append(side1.pop(indexer(side1)))
-    elif compare(side2, exception1) or compare(side2, exception1):
-        side1.append(side2.pop(indexer(side2)))
-    print(side1, " => ", side2)
-    switcher()
+        right.append(indexer(left))
+        print(left, " => ", right)
+    elif compare(right, exception1) or compare(right, exception1):
+        left.append(indexer(right))
+        print(left, " <= ", right)
+    else:
+        print(left, " <== move empty ==<< ", right)
+    isLeftSide = not isLeftSide
 
-print("\n\nFinish")
-    # remove wolf from side 1 and move it to side 2
-
-    # side2.append(side1.pop(0))  переместить первый элемент первого списка в конец второго списка
-    # isLeftSide = not isLeftSide
-    # list.append(Var)
-    # list.pop(0) - удалить и вернуть последний элемент списка, или его индекс.
+print("\nFinish")
