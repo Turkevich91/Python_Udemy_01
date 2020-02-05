@@ -1,9 +1,10 @@
 from comparator import does_list_x_contain_y as conflict
-left = ['goat', 'cabbage', 'wolf']
+left = ['goat', 'cabbage','wolf']
 right = []
 isLeftSide = True
-exception1 = ["wolf", "goat"]
-exception2 = ["goat", "cabbage"]
+exceptions = [["wolf", "goat"], ["goat", "cabbage"]]
+# exception1 = ["wolf", "goat"]
+# exception2 = ["goat", "cabbage"]
 
 
 def take_to_board_from(side):
@@ -11,7 +12,7 @@ def take_to_board_from(side):
         t = side.pop(i)
         if not side:
             return t
-        elif conflict(side, exception1) or conflict(side, exception2):
+        elif conflict(side, exceptions[0]) or conflict(side, exceptions[1]):
             side.insert(i, t)
         else:
             return t
@@ -24,11 +25,11 @@ while len(right) < 3:
     if isLeftSide:  # move from left to right
         right.append(take_to_board_from(left))
         print(left, " => ", right)
-    elif conflict(right, exception1) or conflict(right, exception2):
+    elif conflict(right, exceptions[0]) or conflict(right, exceptions[1]):
         left.append(take_to_board_from(right))
         print(left, " <= ", right)
     else:
-        print(left, " <== move empty ==<< ", right)
+        print(" <== return empty ==<< ")
     isLeftSide = not isLeftSide
 
 print("\nFinish")
